@@ -1,400 +1,287 @@
-/* =========================================
-   SKILLS PAGE
-========================================= */
+/* =========================================================
+   CHANDU PORTFOLIO
+   SKILLS PAGE JS
+========================================================= */
+
+document.addEventListener("DOMContentLoaded", () => {
+
+    const body = document.body;
+    const themeToggle = document.getElementById("themeToggle");
+    const themeIcon = document.querySelector(".theme-icon");
 
 
-/* =========================================
-   DARK MODE
-========================================= */
 
-const darkToggle =
-    document.getElementById("darkToggle");
+    /* =====================================================
+       THEME SYSTEM
+    ===================================================== */
 
-const toggleIcon =
-    darkToggle.querySelector(".toggle-icon");
+    const savedTheme = localStorage.getItem("chandu-theme");
 
+    if (savedTheme === "dark") {
 
-darkToggle.addEventListener("click", () => {
+        body.classList.add("dark-mode");
 
-    document.body.classList.toggle("light-mode");
-
-    const light =
-        document.body.classList.contains(
-            "light-mode"
-        );
-
-    toggleIcon.textContent =
-        light ? "☀" : "☾";
-
-});
+    }
 
 
-/* =========================================
-   SKILL CARDS
-========================================= */
+    function updateThemeIcon() {
 
-const skillCards =
-    document.querySelectorAll(".skill-card");
+        if (!themeIcon) return;
 
+        if (body.classList.contains("dark-mode")) {
 
-/* =========================================
-   SET INDIVIDUAL COLOUR
-========================================= */
+            themeIcon.textContent = "☾";
 
-skillCards.forEach(card => {
+        } else {
 
-    const color =
-        card.dataset.color;
-
-    card.style.setProperty(
-        "--skill-color",
-        color
-    );
-
-});
-
-
-/* =========================================
-   3D MOUSE FOLLOW
-========================================= */
-
-skillCards.forEach(card => {
-
-    card.addEventListener("mousemove", event => {
-
-        const rect =
-            card.getBoundingClientRect();
-
-        const mouseX =
-            event.clientX - rect.left;
-
-        const mouseY =
-            event.clientY - rect.top;
-
-
-        const centerX =
-            rect.width / 2;
-
-        const centerY =
-            rect.height / 2;
-
-
-        const rotateY =
-            ((mouseX - centerX) / centerX) * 10;
-
-        const rotateX =
-            ((centerY - mouseY) / centerY) * 10;
-
-
-        card.style.transform =
-            `perspective(900px)
-             rotateX(${rotateX}deg)
-             rotateY(${rotateY}deg)
-             translateZ(18px)`;
-
-
-        const glow =
-            card.querySelector(".skill-glow");
-
-
-        if (glow) {
-
-            glow.style.left =
-                `${mouseX}px`;
-
-            glow.style.top =
-                `${mouseY}px`;
+            themeIcon.textContent = "☼";
 
         }
 
-    });
+    }
 
 
-    card.addEventListener("mouseleave", () => {
-
-        card.style.transform =
-            "";
-
-        const glow =
-            card.querySelector(".skill-glow");
-
-        if (glow) {
-
-            glow.style.left =
-                "50%";
-
-            glow.style.top =
-                "50%";
-
-        }
-
-    });
-
-});
+    updateThemeIcon();
 
 
-/* =========================================
-   360 DEGREE ROTATION
-========================================= */
 
-skillCards.forEach(card => {
+    if (themeToggle) {
 
-    let lastTouch = 0;
+        themeToggle.addEventListener("click", () => {
 
+            body.classList.toggle("dark-mode");
 
-    card.addEventListener("mouseenter", () => {
+            const isDark =
+                body.classList.contains("dark-mode");
 
-        const now =
-            Date.now();
-
-
-        /*
-         Prevent the card from
-         constantly rotating when
-         moving between cards.
-        */
-
-        if (now - lastTouch < 1200) {
-            return;
-        }
-
-
-        lastTouch = now;
-
-
-        card.classList.remove("rotating");
-
-
-        /*
-         Force browser reflow so
-         animation can restart.
-        */
-
-        void card.offsetWidth;
-
-
-        card.classList.add("rotating");
-
-
-        setTimeout(() => {
-
-            card.classList.remove(
-                "rotating"
+            localStorage.setItem(
+                "chandu-theme",
+                isDark ? "dark" : "light"
             );
 
-        }, 1000);
+            updateThemeIcon();
+
+        });
+
+    }
+
+
+
+    /* =====================================================
+       SKILL PROGRESS ANIMATION
+    ===================================================== */
+
+    const skillCards =
+        document.querySelectorAll(".skill-card");
+
+
+    const progressObserver =
+        new IntersectionObserver(
+            (entries, observer) => {
+
+                entries.forEach(entry => {
+
+                    if (!entry.isIntersecting) return;
+
+                    const card = entry.target;
+
+                    const level =
+                        card.dataset.level || 0;
+
+                    const progress =
+                        card.querySelector(".progress span");
+
+                    if (progress) {
+
+                        requestAnimationFrame(() => {
+
+                            progress.style.width =
+                                `${level}%`;
+
+                        });
+
+                    }
+
+                    observer.unobserve(card);
+
+                });
+
+            },
+            {
+                threshold: 0.25
+            }
+        );
+
+
+    skillCards.forEach(card => {
+
+        progressObserver.observe(card);
 
     });
 
-});
 
 
-/* =========================================
-   MOBILE TOUCH
-========================================= */
+    /* =====================================================
+       3D MOUSE EFFECT
+    ===================================================== */
 
-skillCards.forEach(card => {
+    const cards =
+        document.querySelectorAll(
+            ".skill-card, .core-card"
+        );
 
-    card.addEventListener(
-        "touchstart",
-        event => {
 
-            const touch =
-                event.touches[0];
+    cards.forEach(card => {
+
+        card.addEventListener("mousemove", event => {
+
+            if (window.innerWidth < 800) return;
 
             const rect =
                 card.getBoundingClientRect();
 
-
             const x =
-                touch.clientX - rect.left;
+                event.clientX - rect.left;
 
             const y =
-                touch.clientY - rect.top;
+                event.clientY - rect.top;
 
+            const centerX =
+                rect.width / 2;
 
-            const rotateY =
-                ((x - rect.width / 2)
-                / (rect.width / 2)) * 8;
-
+            const centerY =
+                rect.height / 2;
 
             const rotateX =
-                ((rect.height / 2 - y)
-                / (rect.height / 2)) * 8;
+                ((y - centerY) / centerY) * -4;
+
+            const rotateY =
+                ((x - centerX) / centerX) * 4;
 
 
             card.style.transform =
-                `perspective(900px)
+                `perspective(800px)
                  rotateX(${rotateX}deg)
                  rotateY(${rotateY}deg)
-                 translateZ(15px)`;
+                 translateY(-4px)`;
+        });
 
 
-            card.classList.remove(
-                "rotating"
-            );
+        card.addEventListener("mouseleave", () => {
+
+            card.style.transform = "";
+
+        });
+
+    });
 
 
-            void card.offsetWidth;
+
+    /* =====================================================
+       SCROLL REVEAL
+    ===================================================== */
+
+    const revealItems =
+        document.querySelectorAll(
+            ".skill-section, .skills-cta"
+        );
 
 
-            card.classList.add(
-                "rotating"
-            );
+    const revealObserver =
+        new IntersectionObserver(
+            entries => {
 
+                entries.forEach(entry => {
 
-            setTimeout(() => {
+                    if (!entry.isIntersecting) return;
 
-                card.style.transform = "";
-
-                card.classList.remove(
-                    "rotating"
-                );
-
-            }, 1000);
-
-        },
-        { passive: true }
-    );
-
-});
-
-
-/* =========================================
-   SCROLL REVEAL
-========================================= */
-
-const revealCards =
-    document.querySelectorAll(
-        ".skill-card"
-    );
-
-
-const revealObserver =
-    new IntersectionObserver(
-        entries => {
-
-            entries.forEach(entry => {
-
-                if (
-                    entry.isIntersecting
-                ) {
-
-                    entry.target.animate(
-                        [
-                            {
-                                opacity: 0,
-                                transform:
-                                    "translateY(70px)"
-                            },
-
-                            {
-                                opacity: 1,
-                                transform:
-                                    "translateY(0)"
-                            }
-                        ],
-                        {
-                            duration: 900,
-                            easing:
-                                "cubic-bezier(.16,1,.3,1)",
-                            fill: "forwards"
-                        }
+                    entry.target.classList.add(
+                        "visible"
                     );
-
 
                     revealObserver.unobserve(
                         entry.target
                     );
 
-                }
+                });
 
-            });
+            },
+            {
+                threshold: 0.08
+            }
+        );
+
+
+    revealItems.forEach(item => {
+
+        item.style.opacity = "0";
+
+        item.style.transform =
+            "translateY(35px)";
+
+        item.style.transition =
+            "opacity .8s ease, transform .8s cubic-bezier(.16,1,.3,1)";
+
+        revealObserver.observe(item);
+
+    });
+
+
+    /* =====================================================
+       REVEAL CLASS
+    ===================================================== */
+
+    document.addEventListener(
+        "scroll",
+        () => {
+
+            document
+                .querySelectorAll(".visible")
+                .forEach(item => {
+
+                    item.style.opacity = "1";
+
+                    item.style.transform =
+                        "translateY(0)";
+
+                });
 
         },
         {
-            threshold: .15
+            passive: true
         }
     );
 
 
-revealCards.forEach(card => {
 
-    revealObserver.observe(card);
+    /* =====================================================
+       ACTIVE NAV
+    ===================================================== */
 
-});
-
-
-/* =========================================
-   BACKGROUND MOUSE PARALLAX
-========================================= */
-
-const ambientOrbs =
-    document.querySelectorAll(
-        ".ambient"
-    );
+    const currentPage =
+        window.location.pathname
+            .split("/")
+            .pop()
+            .toLowerCase();
 
 
-document.addEventListener(
-    "mousemove",
-    event => {
+    document
+        .querySelectorAll(".nav-links a")
+        .forEach(link => {
 
-        const x =
-            (event.clientX /
-            window.innerWidth - .5);
+            const href =
+                link.getAttribute("href");
 
-        const y =
-            (event.clientY /
-            window.innerHeight - .5);
+            if (!href) return;
 
+            if (
+                href.toLowerCase() === currentPage
+            ) {
 
-        ambientOrbs.forEach(
-            (orb, index) => {
-
-                const strength =
-                    (index + 1) * 18;
-
-
-                orb.style.transform =
-                    `translate(
-                        ${x * strength}px,
-                        ${y * strength}px
-                    )`;
+                link.classList.add("active");
 
             }
-        );
 
-    }
-);
-
-
-/* =========================================
-   CARD CLICK FEEDBACK
-========================================= */
-
-skillCards.forEach(card => {
-
-    card.addEventListener("click", () => {
-
-        card.animate(
-            [
-                {
-                    scale: 1
-                },
-                {
-                    scale: 1.04
-                },
-                {
-                    scale: 1
-                }
-            ],
-            {
-                duration: 500,
-                easing:
-                    "cubic-bezier(.16,1,.3,1)"
-            }
-        );
-
-    });
+        });
 
 });

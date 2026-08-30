@@ -2,76 +2,126 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
 
     <title>Contact — CHANDU</title>
+
+    <meta
+        name="description"
+        content="Contact CHANDU — Visual Merchandiser"
+    >
 
     <link rel="stylesheet" href="contact.css">
 </head>
 
 <body>
 
-    <!-- BACKGROUND -->
+    <!-- =========================================
+         MOUSE GLOW
+    ========================================== -->
 
-    <div class="bg-glow glow-1"></div>
-    <div class="bg-glow glow-2"></div>
-    <div class="bg-glow glow-3"></div>
+    <div class="mouse-glow"></div>
 
 
-    <!-- NAVBAR -->
+    <!-- =========================================
+         BACKGROUND LIGHT
+    ========================================== -->
 
-    <header class="navbar">
+    <div class="ambient ambient-one"></div>
+    <div class="ambient ambient-two"></div>
+    <div class="ambient ambient-three"></div>
 
-        <nav class="nav-menu">
 
-            <a href="about.html">ABOUT</a>
+    <!-- =========================================
+         NAVBAR
+    ========================================== -->
 
-            <a href="experience.html">EXP</a>
+    <header class="navbar-wrap">
 
-            <a href="vm-gallery.html">VM GALLERY</a>
+        <nav class="navbar">
 
-            <a href="skills.html">SKILLS</a>
+            <div class="nav-links">
 
-            <a href="contact.html" class="active">
-                CONTACT
-            </a>
+                <a href="experience.html" class="nav-link">
+                    Experience
+                </a>
+
+                <a href="about.html" class="nav-link">
+                    About
+                </a>
+
+                <a href="vm-gallery.html" class="nav-link">
+                    VM Gallery
+                </a>
+
+                <a href="skills.html" class="nav-link">
+                    Skills
+                </a>
+
+                <a
+                    href="contact.html"
+                    class="nav-link active"
+                >
+                    Contact
+                </a>
+
+            </div>
+
+
+            <!-- DARK / LIGHT -->
+
+            <button
+                class="theme-button"
+                id="themeToggle"
+                aria-label="Toggle dark mode"
+                type="button"
+            >
+                <span id="themeIcon">☼</span>
+            </button>
 
         </nav>
-
-
-        <button
-            class="theme-button"
-            id="themeButton"
-            aria-label="Change theme"
-        >
-            <span id="themeIcon">☾</span>
-        </button>
 
     </header>
 
 
 
-    <!-- MAIN -->
+    <!-- =========================================
+         MAIN CONTACT PAGE
+    ========================================== -->
 
     <main class="contact-page">
 
 
-        <!-- TOP -->
+        <!-- =====================================
+             HERO
+        ====================================== -->
 
-        <section class="contact-intro">
+        <section class="contact-hero">
 
-            <div class="page-index">
-                05 / CONTACT
+            <div class="hero-label">
+                <span class="status-dot"></span>
+                OPEN TO OPPORTUNITIES
             </div>
 
+
+            <p class="eyebrow">
+                LET'S CONNECT
+            </p>
+
+
             <h1>
-                LET'S
-                <span>CONNECT.</span>
+                Let's work
+                <span>together.</span>
             </h1>
 
-            <p>
-                Have an opportunity, project or
-                collaboration in mind?
+
+            <p class="hero-description">
+                Looking for a Visual Merchandising professional
+                with retail experience, creative execution and
+                strong understanding of store presentation?
                 Let's connect.
             </p>
 
@@ -79,48 +129,67 @@
 
 
 
-        <!-- CONTACT GRID -->
+        <!-- =====================================
+             CONTACT GRID
+        ====================================== -->
 
         <section class="contact-grid">
 
 
-            <!-- PROFILE -->
+            <!-- =================================
+                 PROFILE CARD
+            ================================== -->
 
-            <article class="profile-glass">
+            <article class="glass-card profile-card">
 
-                <div class="profile-photo">
+                <div class="card-top">
 
-                    <img
-                        src="assets/profile.jpeg"
-                        alt="CHANDU"
-                    >
+                    <span class="card-number">
+                        01
+                    </span>
 
-                </div>
-
-
-                <div class="profile-details">
-
-                    <small>
-                        VISUAL MERCHANDISER
-                    </small>
-
-                    <h2>
-                        CHANDU
-                    </h2>
-
-                    <p>
-                        Retail Visual Merchandising,
-                        Sales & Stock Operations
-                    </p>
+                    <span class="card-category">
+                        PROFILE
+                    </span>
 
                 </div>
 
 
-                <div class="online-status">
+                <div class="profile-content">
 
-                    <span></span>
+                    <div class="profile-image-wrap">
 
-                    AVAILABLE FOR OPPORTUNITIES
+                        <img
+                            src="assets/profile.jpeg"
+                            alt="CHANDU - Visual Merchandiser"
+                            class="profile-image"
+                        >
+
+                    </div>
+
+
+                    <div class="profile-info">
+
+                        <h2>
+                            CHANDU
+                        </h2>
+
+                        <p class="role">
+                            Visual Merchandiser
+                        </p>
+
+                        <p class="location">
+                            Hyderabad, India
+                        </p>
+
+                        <p class="profile-text">
+                            Visual Merchandiser focused on retail
+                            presentation, product storytelling,
+                            planograms, store execution and
+                            customer-centric visual environments.
+                        </p>
+
+                    </div>
 
                 </div>
 
@@ -128,333 +197,478 @@
 
 
 
-            <!-- MESSAGE -->
+            <!-- =================================
+                 CONTACT DETAILS
+            ================================== -->
 
-            <article class="message-glass">
+            <article class="glass-card details-card">
 
-                <div class="section-label">
-                    MESSAGE
+                <div class="card-top">
+
+                    <span class="card-number">
+                        02
+                    </span>
+
+                    <span class="card-category">
+                        CONTACT
+                    </span>
+
                 </div>
 
+
+                <div class="contact-list">
+
+
+                    <!-- EMAIL -->
+
+                    <a
+                        href="#"
+                        class="contact-item"
+                        id="emailLink"
+                    >
+
+                        <span class="contact-icon">
+                            @
+                        </span>
+
+                        <span class="contact-item-content">
+
+                            <small>
+                                EMAIL
+                            </small>
+
+                            <strong id="emailText">
+                                Your Gmail
+                            </strong>
+
+                        </span>
+
+                        <span class="contact-arrow">
+                            ↗
+                        </span>
+
+                    </a>
+
+
+
+                    <!-- PHONE -->
+
+                    <a
+                        href="#"
+                        class="contact-item"
+                        id="phoneLink"
+                    >
+
+                        <span class="contact-icon">
+                            ☎
+                        </span>
+
+                        <span class="contact-item-content">
+
+                            <small>
+                                PHONE
+                            </small>
+
+                            <strong id="phoneText">
+                                Your Number
+                            </strong>
+
+                        </span>
+
+                        <span class="contact-arrow">
+                            ↗
+                        </span>
+
+                    </a>
+
+
+
+                    <!-- WHATSAPP -->
+
+                    <a
+                        href="#"
+                        target="_blank"
+                        rel="noopener"
+                        class="contact-item whatsapp-item"
+                        id="whatsappLink"
+                    >
+
+                        <span class="contact-icon">
+                            W
+                        </span>
+
+                        <span class="contact-item-content">
+
+                            <small>
+                                DIRECT MESSAGE
+                            </small>
+
+                            <strong>
+                                WhatsApp
+                            </strong>
+
+                        </span>
+
+                        <span class="contact-arrow">
+                            ↗
+                        </span>
+
+                    </a>
+
+
+
+                    <!-- LINKEDIN -->
+
+                    <a
+                        href="https://www.linkedin.com/in/r-chandu-visualmerchandising"
+                        target="_blank"
+                        rel="noopener"
+                        class="contact-item"
+                    >
+
+                        <span class="contact-icon">
+                            in
+                        </span>
+
+                        <span class="contact-item-content">
+
+                            <small>
+                                PROFESSIONAL
+                            </small>
+
+                            <strong>
+                                LinkedIn
+                            </strong>
+
+                        </span>
+
+                        <span class="contact-arrow">
+                            ↗
+                        </span>
+
+                    </a>
+
+                </div>
+
+            </article>
+
+
+
+            <!-- =================================
+                 RESUME CARD
+            ================================== -->
+
+            <article class="glass-card resume-card">
+
+                <div class="card-top">
+
+                    <span class="card-number">
+                        03
+                    </span>
+
+                    <span class="card-category">
+                        RESUME
+                    </span>
+
+                </div>
+
+
+                <div class="resume-content">
+
+                    <div class="resume-symbol">
+                        CV
+                    </div>
+
+
+                    <div>
+
+                        <h2>
+                            My Resume
+                        </h2>
+
+                        <p>
+                            View my professional experience,
+                            skills and retail career journey.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="resume-actions">
+
+                    <a
+                        href="assets/CHANDU_RESUME.pdf"
+                        target="_blank"
+                        class="glass-button primary-button"
+                    >
+                        VIEW RESUME
+                        <span>↗</span>
+                    </a>
+
+
+                    <a
+                        href="assets/CHANDU_RESUME.pdf"
+                        download
+                        class="glass-button secondary-button"
+                    >
+                        DOWNLOAD
+                        <span>↓</span>
+                    </a>
+
+                </div>
+
+            </article>
+
+
+
+            <!-- =================================
+                 SHARE PORTFOLIO
+            ================================== -->
+
+            <article class="glass-card share-card">
+
+                <div class="card-top">
+
+                    <span class="card-number">
+                        04
+                    </span>
+
+                    <span class="card-category">
+                        PORTFOLIO
+                    </span>
+
+                </div>
+
+
+                <div class="share-content">
+
+                    <h2>
+                        Share my work.
+                    </h2>
+
+                    <p>
+                        Share this portfolio with recruiters,
+                        hiring managers or your professional network.
+                    </p>
+
+
+                    <div class="share-actions">
+
+                        <button
+                            type="button"
+                            class="glass-button primary-button"
+                            id="shareButton"
+                        >
+                            SHARE PORTFOLIO
+                            <span>↗</span>
+                        </button>
+
+
+                        <button
+                            type="button"
+                            class="glass-button secondary-button"
+                            id="copyButton"
+                        >
+                            COPY LINK
+                            <span>⌘</span>
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+        </section>
+
+
+
+        <!-- =====================================
+             MESSAGE SECTION
+        ====================================== -->
+
+        <section class="message-section">
+
+
+            <div class="section-heading">
+
+                <p class="eyebrow">
+                    GET IN TOUCH
+                </p>
+
                 <h2>
-                    TALK TO
-                    <em>ME.</em>
+                    Send me a message.
                 </h2>
 
+                <p>
+                    Fill in the details and send your message
+                    directly through WhatsApp.
+                </p>
 
-                <form id="contactForm">
+            </div>
 
 
-                    <div class="field">
 
-                        <label>
-                            NAME
+            <!-- =================================
+                 FORM
+            ================================== -->
+
+            <form
+                class="glass-card message-form"
+                id="contactForm"
+            >
+
+                <div class="form-grid">
+
+
+                    <!-- NAME -->
+
+                    <div class="input-group">
+
+                        <label for="name">
+                            YOUR NAME
                         </label>
 
                         <input
-                            id="visitorName"
                             type="text"
-                            placeholder="Your name"
+                            id="name"
+                            name="name"
+                            placeholder="Enter your name"
+                            autocomplete="name"
                             required
                         >
 
                     </div>
 
 
-                    <div class="field">
 
-                        <label>
-                            EMAIL
+                    <!-- EMAIL -->
+
+                    <div class="input-group">
+
+                        <label for="senderEmail">
+                            YOUR EMAIL
                         </label>
 
                         <input
-                            id="visitorEmail"
                             type="email"
-                            placeholder="your@email.com"
+                            id="senderEmail"
+                            name="email"
+                            placeholder="Enter your email"
+                            autocomplete="email"
                             required
                         >
 
                     </div>
 
 
-                    <div class="field">
 
-                        <label>
+                    <!-- SUBJECT -->
+
+                    <div class="input-group full-width">
+
+                        <label for="subject">
+                            SUBJECT
+                        </label>
+
+                        <input
+                            type="text"
+                            id="subject"
+                            name="subject"
+                            placeholder="What would you like to discuss?"
+                            required
+                        >
+
+                    </div>
+
+
+
+                    <!-- MESSAGE -->
+
+                    <div class="input-group full-width">
+
+                        <label for="message">
                             MESSAGE
                         </label>
 
                         <textarea
-                            id="visitorMessage"
-                            rows="5"
+                            id="message"
+                            name="message"
+                            rows="7"
                             placeholder="Write your message..."
                             required
                         ></textarea>
 
                     </div>
 
-
-                    <button
-                        class="whatsapp-submit"
-                        type="submit"
-                    >
-
-                        <span>
-                            SEND TO CHANDU
-                        </span>
-
-                        <strong>
-                            ↗
-                        </strong>
-
-                    </button>
-
-                </form>
-
-            </article>
-
-        </section>
+                </div>
 
 
 
-        <!-- CONNECT -->
-
-        <section class="connect-section">
-
-            <div class="connect-heading">
-
-                <span>
-                    FIND ME
-                </span>
-
-                <h2>
-                    CONNECT
-                    <em>DIRECTLY.</em>
-                </h2>
-
-            </div>
-
-
-            <div class="connect-cards">
-
-
-                <!-- LINKEDIN -->
-
-                <a
-                    class="connect-card"
-                    href="https://www.linkedin.com/in/r-chandu-visualmerchandising"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                >
-
-                    <div class="card-symbol">
-                        in
-                    </div>
-
-                    <div>
-
-                        <small>
-                            PROFESSIONAL
-                        </small>
-
-                        <h3>
-                            LinkedIn
-                        </h3>
-
-                    </div>
-
-                    <b>↗</b>
-
-                </a>
-
-
-
-                <!-- WHATSAPP -->
-
-                <a
-                    class="connect-card"
-                    id="whatsappDirect"
-                    href="#"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                >
-
-                    <div class="card-symbol">
-                        WA
-                    </div>
-
-                    <div>
-
-                        <small>
-                            DIRECT MESSAGE
-                        </small>
-
-                        <h3>
-                            WhatsApp
-                        </h3>
-
-                    </div>
-
-                    <b>↗</b>
-
-                </a>
-
-
-
-                <!-- EMAIL -->
-
-                <a
-                    class="connect-card"
-                    id="emailDirect"
-                    href="#"
-                >
-
-                    <div class="card-symbol">
-                        @
-                    </div>
-
-                    <div>
-
-                        <small>
-                            EMAIL
-                        </small>
-
-                        <h3>
-                            Email Me
-                        </h3>
-
-                    </div>
-
-                    <b>↗</b>
-
-                </a>
-
-            </div>
-
-        </section>
-
-
-
-        <!-- PORTFOLIO SHARE -->
-
-        <section class="share-section">
-
-            <div class="share-glass">
-
-                <div class="share-copy">
-
-                    <span>
-                        MY PORTFOLIO
-                    </span>
-
-                    <h2>
-                        SHARE
-                        <em>MY WORK.</em>
-                    </h2>
+                <div class="form-bottom">
 
                     <p>
-                        Share my portfolio with
-                        recruiters, brands or
-                        professional connections.
+                        Your message will open directly in WhatsApp.
                     </p>
 
-                </div>
-
-
-                <div class="share-actions">
-
                     <button
-                        id="shareButton"
-                        class="share-button primary"
+                        type="submit"
+                        class="send-button"
                     >
-                        SHARE PORTFOLIO
-                        <b>↗</b>
-                    </button>
-
-
-                    <button
-                        id="copyButton"
-                        class="share-button"
-                    >
-                        COPY LINK
-                        <b>⌘</b>
+                        SEND MESSAGE
+                        <span>→</span>
                     </button>
 
                 </div>
 
-            </div>
+            </form>
 
         </section>
 
 
 
-        <!-- RESUME -->
+        <!-- =====================================
+             FOOTER
+        ====================================== -->
 
-        <section class="resume-section">
+        <footer class="contact-footer">
 
-            <div class="resume-glass">
+            <div>
 
-                <div>
+                <strong>
+                    CHANDU
+                </strong>
 
-                    <span>
-                        PROFESSIONAL PROFILE
-                    </span>
-
-                    <h2>
-                        VIEW MY
-                        <em>RESUME.</em>
-                    </h2>
-
-                </div>
-
-
-                <div class="resume-buttons">
-
-                    <a
-                        href="assets/resume.pdf"
-                        target="_blank"
-                        class="resume-btn"
-                    >
-                        VIEW RESUME
-                        <b>↗</b>
-                    </a>
-
-
-                    <a
-                        href="assets/resume.pdf"
-                        download="CHANDU-Resume.pdf"
-                        class="resume-btn"
-                    >
-                        DOWNLOAD
-                        <b>↓</b>
-                    </a>
-
-                </div>
+                <span>
+                    Visual Merchandiser
+                </span>
 
             </div>
 
-        </section>
-
-
-
-        <!-- FOOTER -->
-
-        <footer>
-
-            <span>
-                CHANDU
-            </span>
 
             <p>
-                VISUAL MERCHANDISER
+                © 2026 CHANDU. All Rights Reserved.
             </p>
-
-            <small>
-                © 2026 — ALL RIGHTS RESERVED
-            </small>
 
         </footer>
 
+
     </main>
+
+
+
+    <!-- =========================================
+         TOAST
+    ========================================== -->
+
+    <div
+        class="toast"
+        id="toast"
+    >
+        Link copied
+    </div>
 
 
     <script src="contact.js"></script>

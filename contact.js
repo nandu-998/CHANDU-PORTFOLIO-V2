@@ -1,138 +1,394 @@
-/* =========================================
-   CONTACT PAGE CONFIG
-========================================= */
+/* =========================================================
+   CHANDU PORTFOLIO
+   CONTACT PAGE JAVASCRIPT
+========================================================= */
 
 
-/*
-   IMPORTANT:
-   Replace this with your actual WhatsApp number.
+/* =========================================================
+   YOUR CONTACT DETAILS
+   EDIT ONLY THIS SECTION
+========================================================= */
 
-   Example:
-   919876543210
+const CONTACT = {
 
-   Don't use + or spaces.
-*/
+    /* Your Gmail */
+    email: "chandur9989@gmail.com",
 
-const WHATSAPP_NUMBER = "917093489320";
+    /* Your phone number with country code */
+    phone: "917093489320",
 
+    /* WhatsApp number with country code
+       NO + symbol
+       NO spaces
+       Example: 919876543210
+    */
+    whatsapp: "917093489320",
 
-/*
-   Your LinkedIn
-*/
+    /* Your LinkedIn */
+    linkedin:
+        "https://www.linkedin.com/in/r-chandu-visualmerchandising",
 
-const LINKEDIN_URL =
-    "https://www.linkedin.com/in/r-chandu-visualmerchandising";
+    /* Your portfolio */
+    portfolio:
+        "https://nandu-998.github.io/CHANDU_PORTFOLIO/",
 
+    /* Resume location */
+    resume:
+        "assets/CHANDU_RESUME.pdf"
 
-/*
-   Replace with your actual email.
-*/
-
-const EMAIL =
-    "chandur9989@gmail.com";
-
-
-/*
-   Portfolio URL
-
-   If the portfolio is hosted on GitHub Pages,
-   keep your live portfolio URL here.
-*/
-
-const PORTFOLIO_URL =
-    "https://nandu-998.github.io/portfolio/";
+};
 
 
-/* =========================================
-   THEME
-========================================= */
+/* =========================================================
+   DOM
+========================================================= */
 
-const themeButton =
-    document.getElementById("themeButton");
+const body =
+    document.body;
+
+const themeToggle =
+    document.getElementById("themeToggle");
 
 const themeIcon =
     document.getElementById("themeIcon");
 
+const emailLink =
+    document.getElementById("emailLink");
 
-const savedTheme =
-    localStorage.getItem("chandu-theme");
+const emailText =
+    document.getElementById("emailText");
+
+const phoneLink =
+    document.getElementById("phoneLink");
+
+const phoneText =
+    document.getElementById("phoneText");
+
+const whatsappLink =
+    document.getElementById("whatsappLink");
+
+const shareButton =
+    document.getElementById("shareButton");
+
+const copyButton =
+    document.getElementById("copyButton");
+
+const contactForm =
+    document.getElementById("contactForm");
+
+const toast =
+    document.getElementById("toast");
+
+const mouseGlow =
+    document.querySelector(".mouse-glow");
 
 
-if (savedTheme === "light") {
+/* =========================================================
+   LOAD CONTACT DETAILS
+========================================================= */
 
-    document.body.classList.add("light");
+function loadContactDetails() {
 
-    themeIcon.textContent = "☀";
+    /*
+     * EMAIL
+     */
+
+    emailText.textContent =
+        CONTACT.email;
+
+    emailLink.href =
+        `mailto:${CONTACT.email}`;
+
+
+    /*
+     * PHONE
+     */
+
+    const formattedPhone =
+        CONTACT.phone.startsWith("91")
+            ? `+${CONTACT.phone.slice(0, 2)} ${CONTACT.phone.slice(2)}`
+            : CONTACT.phone;
+
+    phoneText.textContent =
+        formattedPhone;
+
+    phoneLink.href =
+        `tel:+${CONTACT.phone}`;
+
+
+    /*
+     * WHATSAPP
+     */
+
+    const whatsappMessage =
+        encodeURIComponent(
+            "Hi Chandu, I found your portfolio and would like to connect with you."
+        );
+
+    whatsappLink.href =
+        `https://wa.me/${CONTACT.whatsapp}?text=${whatsappMessage}`;
+}
+
+
+/* =========================================================
+   THEME
+========================================================= */
+
+function setTheme(theme) {
+
+    if (theme === "dark") {
+
+        body.classList.add("dark-mode");
+
+        themeIcon.textContent =
+            "☾";
+
+        localStorage.setItem(
+            "chandu-theme",
+            "dark"
+        );
+
+    } else {
+
+        body.classList.remove("dark-mode");
+
+        themeIcon.textContent =
+            "☼";
+
+        localStorage.setItem(
+            "chandu-theme",
+            "light"
+        );
+    }
+}
+
+
+function loadTheme() {
+
+    const savedTheme =
+        localStorage.getItem("chandu-theme");
+
+    if (savedTheme) {
+
+        setTheme(savedTheme);
+
+        return;
+    }
+
+
+    /*
+     * Use system preference
+     */
+
+    const prefersDark =
+        window.matchMedia &&
+        window.matchMedia(
+            "(prefers-color-scheme: dark)"
+        ).matches;
+
+    setTheme(
+        prefersDark
+            ? "dark"
+            : "light"
+    );
+}
+
+
+themeToggle.addEventListener(
+    "click",
+    () => {
+
+        const isDark =
+            body.classList.contains("dark-mode");
+
+        setTheme(
+            isDark
+                ? "light"
+                : "dark"
+        );
+    }
+);
+
+
+/* =========================================================
+   MOUSE FOLLOW GLOW
+========================================================= */
+
+let mouseX = 0;
+let mouseY = 0;
+
+let glowX = 0;
+let glowY = 0;
+
+
+window.addEventListener(
+    "mousemove",
+    (event) => {
+
+        mouseX =
+            event.clientX;
+
+        mouseY =
+            event.clientY;
+    },
+    { passive: true }
+);
+
+
+function animateGlow() {
+
+    glowX +=
+        (mouseX - glowX) * 0.08;
+
+    glowY +=
+        (mouseY - glowY) * 0.08;
+
+
+    mouseGlow.style.left =
+        `${glowX}px`;
+
+    mouseGlow.style.top =
+        `${glowY}px`;
+
+
+    requestAnimationFrame(
+        animateGlow
+    );
+}
+
+
+animateGlow();
+
+
+/* =========================================================
+   PORTFOLIO SHARE
+========================================================= */
+
+async function sharePortfolio() {
+
+    const shareData = {
+
+        title:
+            "CHANDU — Visual Merchandiser",
+
+        text:
+            "Check out CHANDU's Visual Merchandising portfolio.",
+
+        url:
+            CONTACT.portfolio
+    };
+
+
+    /*
+     * Native mobile/browser share
+     */
+
+    if (
+        navigator.share &&
+        window.isSecureContext
+    ) {
+
+        try {
+
+            await navigator.share(
+                shareData
+            );
+
+            showToast(
+                "Portfolio shared"
+            );
+
+            return;
+
+        } catch (error) {
+
+            /*
+             * User cancelled share.
+             * Do nothing.
+             */
+
+            if (
+                error.name ===
+                "AbortError"
+            ) {
+                return;
+            }
+        }
+    }
+
+
+    /*
+     * Fallback:
+     * Copy portfolio URL
+     */
+
+    await copyPortfolio();
 
 }
 
 
-themeButton.addEventListener("click", () => {
-
-    document.body.classList.toggle("light");
-
-
-    const isLight =
-        document.body.classList.contains("light");
+shareButton.addEventListener(
+    "click",
+    sharePortfolio
+);
 
 
-    themeIcon.textContent =
-        isLight ? "☀" : "☾";
+/* =========================================================
+   COPY PORTFOLIO
+========================================================= */
+
+async function copyPortfolio() {
+
+    try {
+
+        await navigator.clipboard.writeText(
+            CONTACT.portfolio
+        );
+
+        showToast(
+            "Portfolio link copied"
+        );
+
+    } catch (error) {
+
+        /*
+         * Fallback for older browsers
+         */
+
+        const textarea =
+            document.createElement("textarea");
+
+        textarea.value =
+            CONTACT.portfolio;
+
+        document.body.appendChild(
+            textarea
+        );
+
+        textarea.select();
+
+        document.execCommand(
+            "copy"
+        );
+
+        textarea.remove();
+
+        showToast(
+            "Portfolio link copied"
+        );
+    }
+}
 
 
-    localStorage.setItem(
-        "chandu-theme",
-        isLight ? "light" : "dark"
-    );
-
-});
+copyButton.addEventListener(
+    "click",
+    copyPortfolio
+);
 
 
-/* =========================================
-   WHATSAPP DIRECT
-========================================= */
-
-const whatsappDirect =
-    document.getElementById(
-        "whatsappDirect"
-    );
-
-
-const defaultWhatsAppMessage =
-    "Hi Chandu, I visited your portfolio and would like to connect with you.";
-
-
-whatsappDirect.href =
-    `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(
-        defaultWhatsAppMessage
-    )}`;
-
-
-/* =========================================
-   EMAIL
-========================================= */
-
-const emailDirect =
-    document.getElementById(
-        "emailDirect"
-    );
-
-
-emailDirect.href =
-    `mailto:${EMAIL}?subject=${encodeURIComponent(
-        "Portfolio Contact — CHANDU"
-    )}`;
-
-
-/* =========================================
+/* =========================================================
    CONTACT FORM
-========================================= */
-
-const contactForm =
-    document.getElementById(
-        "contactForm"
-    );
-
+========================================================= */
 
 contactForm.addEventListener(
     "submit",
@@ -141,57 +397,87 @@ contactForm.addEventListener(
         event.preventDefault();
 
 
+        /*
+         * Read form
+         */
+
         const name =
-            document.getElementById(
-                "visitorName"
-            ).value.trim();
+            document
+                .getElementById("name")
+                .value
+                .trim();
 
+        const senderEmail =
+            document
+                .getElementById("senderEmail")
+                .value
+                .trim();
 
-        const email =
-            document.getElementById(
-                "visitorEmail"
-            ).value.trim();
-
+        const subject =
+            document
+                .getElementById("subject")
+                .value
+                .trim();
 
         const message =
-            document.getElementById(
-                "visitorMessage"
-            ).value.trim();
+            document
+                .getElementById("message")
+                .value
+                .trim();
 
+
+        /*
+         * Validation
+         */
 
         if (
             !name ||
-            !email ||
+            !senderEmail ||
+            !subject ||
             !message
         ) {
 
-            alert(
-                "Please fill in all required fields."
+            showToast(
+                "Please complete all fields"
             );
 
             return;
-
         }
 
 
-        const whatsappMessage =
+        /*
+         * WhatsApp message
+         */
+
+        const whatsappText =
+
 `Hi Chandu,
 
 My name is ${name}.
 
-Email: ${email}
+Email: ${senderEmail}
+
+Subject: ${subject}
 
 Message:
 ${message}
 
-I contacted you through your portfolio.`;
+Sent from your portfolio website.`;
+
+
+        const encodedMessage =
+            encodeURIComponent(
+                whatsappText
+            );
 
 
         const whatsappURL =
-            `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(
-                whatsappMessage
-            )}`;
+            `https://wa.me/${CONTACT.whatsapp}?text=${encodedMessage}`;
 
+
+        /*
+         * Open WhatsApp
+         */
 
         window.open(
             whatsappURL,
@@ -199,293 +485,87 @@ I contacted you through your portfolio.`;
             "noopener,noreferrer"
         );
 
+
+        /*
+         * Reset form
+         */
+
+        contactForm.reset();
+
     }
 );
 
 
-/* =========================================
-   SHARE PORTFOLIO
-========================================= */
+/* =========================================================
+   TOAST
+========================================================= */
 
-const shareButton =
-    document.getElementById(
-        "shareButton"
+let toastTimer;
+
+
+function showToast(message) {
+
+    toast.textContent =
+        message;
+
+    toast.classList.add(
+        "show"
     );
 
 
-shareButton.addEventListener(
-    "click",
-    async () => {
-
-        const shareData = {
-
-            title:
-                "CHANDU — Visual Merchandising Portfolio",
-
-            text:
-                "Check out CHANDU's Visual Merchandising Portfolio.",
-
-            url:
-                PORTFOLIO_URL
-
-        };
-
-
-        /*
-           Mobile / supported browsers
-        */
-
-        if (
-            navigator.share
-        ) {
-
-            try {
-
-                await navigator.share(
-                    shareData
-                );
-
-            } catch (error) {
-
-                /*
-                   User cancelled share.
-                   No action required.
-                */
-
-            }
-
-            return;
-
-        }
-
-
-        /*
-           Desktop fallback
-        */
-
-        try {
-
-            await navigator.clipboard.writeText(
-                PORTFOLIO_URL
-            );
-
-
-            showButtonMessage(
-                shareButton,
-                "LINK COPIED ✓"
-            );
-
-        } catch {
-
-            alert(
-                PORTFOLIO_URL
-            );
-
-        }
-
-    }
-);
-
-
-/* =========================================
-   COPY PORTFOLIO LINK
-========================================= */
-
-const copyButton =
-    document.getElementById(
-        "copyButton"
+    clearTimeout(
+        toastTimer
     );
 
 
-copyButton.addEventListener(
-    "click",
-    async () => {
+    toastTimer =
+        setTimeout(
+            () => {
 
-        try {
-
-            await navigator.clipboard.writeText(
-                PORTFOLIO_URL
-            );
-
-
-            showButtonMessage(
-                copyButton,
-                "COPIED ✓"
-            );
-
-        } catch {
-
-            /*
-               Older browsers fallback
-            */
-
-            const temp =
-                document.createElement(
-                    "textarea"
+                toast.classList.remove(
+                    "show"
                 );
 
-            temp.value =
-                PORTFOLIO_URL;
-
-            document.body.appendChild(
-                temp
-            );
-
-            temp.select();
-
-            document.execCommand(
-                "copy"
-            );
-
-            temp.remove();
-
-
-            showButtonMessage(
-                copyButton,
-                "COPIED ✓"
-            );
-
-        }
-
-    }
-);
-
-
-/* =========================================
-   BUTTON FEEDBACK
-========================================= */
-
-function showButtonMessage(
-    button,
-    message
-) {
-
-    const original =
-        button.innerHTML;
-
-
-    button.innerHTML =
-        `<span>${message}</span>`;
-
-
-    setTimeout(() => {
-
-        button.innerHTML =
-            original;
-
-    }, 1800);
-
+            },
+            2200
+        );
 }
 
 
-/* =========================================
-   MOUSE GLOW MOVEMENT
-========================================= */
+/* =========================================================
+   RESUME PATH
+========================================================= */
 
-const glows =
-    document.querySelectorAll(
-        ".bg-glow"
-    );
+function updateResumeLinks() {
 
-
-document.addEventListener(
-    "mousemove",
-    event => {
-
-        const x =
-            event.clientX /
-            window.innerWidth -
-            0.5;
-
-
-        const y =
-            event.clientY /
-            window.innerHeight -
-            0.5;
-
-
-        glows.forEach(
-            (glow, index) => {
-
-                const strength =
-                    (index + 1) * 14;
-
-
-                glow.style.transform =
-                    `translate(
-                        ${x * strength}px,
-                        ${y * strength}px
-                    )`;
-
-            }
+    const resumeLinks =
+        document.querySelectorAll(
+            'a[href*="CHANDU_RESUME.pdf"]'
         );
 
-    }
-);
 
+    resumeLinks.forEach(
+        (link) => {
 
-/* =========================================
-   SCROLL REVEAL
-========================================= */
-
-const revealItems =
-    document.querySelectorAll(
-        ".profile-glass, .message-glass, .connect-card, .share-glass, .resume-glass"
-    );
-
-
-const observer =
-    new IntersectionObserver(
-        entries => {
-
-            entries.forEach(entry => {
-
-                if (
-                    entry.isIntersecting
-                ) {
-
-                    entry.target.animate(
-                        [
-                            {
-                                opacity: 0,
-
-                                transform:
-                                    "translateY(45px)"
-                            },
-
-                            {
-                                opacity: 1,
-
-                                transform:
-                                    "translateY(0)"
-                            }
-                        ],
-                        {
-                            duration: 850,
-
-                            easing:
-                                "cubic-bezier(.16,1,.3,1)",
-
-                            fill: "forwards"
-                        }
-                    );
-
-
-                    observer.unobserve(
-                        entry.target
-                    );
-
-                }
-
-            });
-
-        },
-        {
-            threshold: 0.12
+            link.href =
+                CONTACT.resume;
         }
     );
+}
 
 
-revealItems.forEach(
-    item => observer.observe(item)
-);
+/* =========================================================
+   INITIALIZE
+========================================================= */
+
+function init() {
+
+    loadContactDetails();
+
+    loadTheme();
+
+    updateResumeLinks();
+}
+
+
+init();

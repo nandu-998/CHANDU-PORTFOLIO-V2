@@ -4,411 +4,553 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>VM Gallery | CHANDU</title>
+    <title>VM Gallery — CHANDU</title>
 
+    <link rel="stylesheet" href="navbar.css">
     <link rel="stylesheet" href="vm-gallery.css">
 </head>
 
 <body>
 
-    <!-- =========================
-         BACKGROUND
-    ========================== -->
-    <div class="background-orb orb-one"></div>
-    <div class="background-orb orb-two"></div>
-    <div class="background-orb orb-three"></div>
+    <!-- =====================================================
+         BACKGROUND EFFECTS
+    ====================================================== -->
+    <div class="ambient ambient-one"></div>
+    <div class="ambient ambient-two"></div>
+    <div class="ambient ambient-three"></div>
+
+    <!-- =====================================================
+         NAVBAR
+    ====================================================== -->
+    <header class="site-header">
+
+        <nav class="glass-nav">
+
+            <div class="nav-links">
+
+                <a href="index.html">Home</a>
+
+                <a href="about.html">About</a>
+
+                <a href="experience.html">Experience</a>
+
+                <a href="vm-gallery.html" class="active">
+                    VM Gallery
+                </a>
+
+                <a href="skills.html">Skills</a>
+
+                <a href="contact.html">Contact</a>
+
+            </div>
+
+            <button
+                class="theme-toggle"
+                id="themeToggle"
+                aria-label="Toggle dark mode"
+            >
+                <span class="theme-icon">☼</span>
+            </button>
+
+        </nav>
+
+    </header>
 
 
-    <!-- =========================
-         TOP NAVIGATION
-    ========================== -->
-    <header class="global-navbar">
+    <main>
 
-    <nav class="nav-links">
+        <!-- =================================================
+             HERO
+        ================================================== -->
+        <section class="gallery-hero">
 
-        <a href="about.html">ABOUT</a>
+            <div class="hero-left">
 
-        <a href="experience.html">EXPERIENCE</a>
-
-        <a href="vm-gallery.html" class="active">
-            VM GALLERY
-        </a>
-
-        <a href="skills.html">SKILLS</a>
-
-        <a href="contact.html">CONTACT</a>
-
-    </nav>
-
-    <button
-        class="dark-toggle"
-        id="darkToggle"
-        aria-label="Toggle dark mode"
-    >
-        <span class="toggle-icon">☾</span>
-    </button>
-
-</header>
-    <!-- =========================
-         HERO
-    ========================== -->
-    <section class="gallery-hero">
-
-        <div class="hero-label">
-            VISUAL MERCHANDISING
-        </div>
-
-        <h1>
-            Visual
-            <span>Stories.</span>
-        </h1>
-
-        <p>
-            A curated collection of visual merchandising,
-            display concepts, campaigns, styling and retail projects.
-        </p>
-
-    </section>
-
-
-    <!-- =========================
-         VISUAL DISPLAY AUTO SCROLL
-    ========================== -->
-    <section class="visual-display">
-
-        <div class="section-heading">
-            <span>01</span>
-            <h2>Visual Display</h2>
-        </div>
-
-        <div class="auto-track-wrapper">
-
-            <div class="auto-track" id="autoTrack">
-
-                <!-- DISPLAY -->
-                <div class="auto-card">
-                    <img src="assets/d1.jpeg" alt="Visual Display">
+                <div class="eyebrow">
+                    <span></span>
+                    VM GALLERY
                 </div>
 
-                <div class="auto-card">
-                    <img src="assets/d2.jpeg" alt="Visual Display">
+                <h1>
+                    Visual
+                    <span>Stories.</span>
+                </h1>
+
+                <p class="hero-description">
+                    A collection of my Visual Merchandising work —
+                    where creativity meets strategy to build
+                    impactful <strong>retail experiences.</strong>
+                </p>
+
+                <button
+                    class="explore-button"
+                    data-scroll-target="#galleryStart"
+                >
+                    EXPLORE GALLERY
+                    <span>↗</span>
+                </button>
+
+            </div>
+
+
+            <div class="hero-stats">
+
+                <div class="stat-item">
+
+                    <span class="stat-icon">✦</span>
+
+                    <strong>30+</strong>
+
+                    <small>Projects</small>
+
                 </div>
 
-                <div class="auto-card">
-                    <img src="assets/d3.jpeg" alt="Visual Display">
+
+                <div class="stat-item">
+
+                    <span class="stat-icon">▣</span>
+
+                    <strong>5</strong>
+
+                    <small>Categories</small>
+
                 </div>
 
-                <div class="auto-card">
-                    <img src="assets/d4.jpeg" alt="Visual Display">
-                </div>
 
-                <div class="auto-card">
-                    <img src="assets/d5.jpeg" alt="Visual Display">
-                </div>
+                <div class="stat-item">
 
-                <div class="auto-card">
-                    <img src="assets/d6.jpeg" alt="Visual Display">
-                </div>
+                    <span class="stat-icon">▧</span>
 
-                <div class="auto-card">
-                    <img src="assets/d7.jpeg" alt="Visual Display">
-                </div>
+                    <strong>100+</strong>
 
-                <div class="auto-card">
-                    <img src="assets/d8.jpeg" alt="Visual Display">
+                    <small>Visuals</small>
+
                 </div>
 
             </div>
 
-        </div>
-
-    </section>
+        </section>
 
 
-    <!-- =========================
-         FILTER
-    ========================== -->
-    <section class="filter-section">
+        <!-- =================================================
+             HORIZONTAL VISUAL STRIP
+        ================================================== -->
+        <section class="visual-strip-section">
 
-        <div class="filter-label">
-            EXPLORE COLLECTION
-        </div>
+            <div class="visual-strip glass-panel">
 
-        <div class="filter-buttons">
+                <div class="strip-track" id="stripTrack">
 
-            <button class="filter-btn active" data-filter="all">
-                All
-            </button>
+                    <!-- JS inserts images -->
 
-            <button class="filter-btn" data-filter="planogram">
-                Planograms
-            </button>
+                </div>
 
-            <button class="filter-btn" data-filter="display">
-                Display
-            </button>
+            </div>
 
-            <button class="filter-btn" data-filter="campaign">
-                Campaigns
-            </button>
+            <div class="motion-label">
 
-            <button class="filter-btn" data-filter="styling">
-                Styling
-            </button>
+                <span>✧</span>
 
-            <button class="filter-btn" data-filter="project">
-                Projects
-            </button>
+                <span>Projects in Motion</span>
 
-        </div>
+                <span>✧</span>
 
-    </section>
+            </div>
+
+        </section>
 
 
-    <!-- =========================
-         GALLERY
-    ========================== -->
-    <main class="gallery-container" id="galleryContainer">
+        <!-- =================================================
+             FILTERS
+        ================================================== -->
+        <section class="filter-section" id="galleryStart">
+
+            <div class="filter-wrapper">
+
+                <button
+                    class="filter-btn active"
+                    data-filter="all"
+                >
+                    <span>⌘</span>
+                    All
+                </button>
 
 
-        <!-- =====================
-             PLANOGRAM
-        ====================== -->
+                <button
+                    class="filter-btn"
+                    data-filter="planograms"
+                >
+                    <span>▦</span>
+                    Planograms
+                </button>
 
-        <section class="gallery-category" data-category="planogram">
 
-            <div class="category-title">
+                <button
+                    class="filter-btn"
+                    data-filter="display"
+                >
+                    <span>▣</span>
+                    Display
+                </button>
 
-                <span>02</span>
 
-                <div>
-                    <small>COLLECTION</small>
+                <button
+                    class="filter-btn"
+                    data-filter="campaigns"
+                >
+                    <span>⌁</span>
+                    Campaigns
+                </button>
+
+
+                <button
+                    class="filter-btn"
+                    data-filter="styling"
+                >
+                    <span>♙</span>
+                    Styling
+                </button>
+
+
+                <button
+                    class="filter-btn"
+                    data-filter="projects"
+                >
+                    <span>□</span>
+                    Projects
+                </button>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             GALLERY
+        ================================================== -->
+        <section class="gallery-container">
+
+
+            <!-- ================= PLANOGRAMS ================= -->
+            <section
+                class="gallery-section"
+                id="planograms"
+                data-category="planograms"
+            >
+
+                <div class="section-info">
+
+                    <span class="section-number">01</span>
+
                     <h2>Planograms</h2>
+
+                    <p>
+                        Strategic layouts that maximize space
+                        and drive retail performance.
+                    </p>
+
+                    <button class="view-all">
+                        VIEW ALL
+                        <span>↗</span>
+                    </button>
+
                 </div>
 
-            </div>
 
+                <div class="image-grid">
 
-            <div class="gallery-grid">
+                    <div class="gallery-card">
+                        <img src="assets/planogram1.jpeg" alt="Planogram 01">
+                    </div>
 
-                <div class="gallery-item left">
-                    <img src="assets/planogram1.jpeg" alt="Planogram 01">
+                    <div class="gallery-card">
+                        <img src="assets/planogram2.jpeg" alt="Planogram 02">
+                    </div>
+
+                    <div class="gallery-card">
+                        <img src="assets/planogram3.jpeg" alt="Planogram 03">
+                    </div>
+
+                    <div class="gallery-card">
+                        <img src="assets/planogram4.jpeg" alt="Planogram 04">
+                    </div>
+
+                    <div class="gallery-card">
+                        <img src="assets/planogram5.jpeg" alt="Planogram 05">
+                    </div>
+
+                    <div class="gallery-card">
+                        <img src="assets/planogram6.jpeg" alt="Planogram 06">
+                    </div>
+
+                    <div class="gallery-card">
+                        <img src="assets/planogram7.jpeg" alt="Planogram 07">
+                    </div>
+
                 </div>
 
-                <div class="gallery-item right">
-                    <img src="assets/planogram2.jpeg" alt="Planogram 02">
-                </div>
-
-                <div class="gallery-item left">
-                    <img src="assets/planogram3.jpeg" alt="Planogram 03">
-                </div>
-
-                <div class="gallery-item right">
-                    <img src="assets/planogram4.jpeg" alt="Planogram 04">
-                </div>
-
-                <div class="gallery-item left">
-                    <img src="assets/planogram5.jpeg" alt="Planogram 05">
-                </div>
-
-                <div class="gallery-item right">
-                    <img src="assets/planogram6.jpeg" alt="Planogram 06">
-                </div>
-
-                <div class="gallery-item left">
-                    <img src="assets/planogram7.jpeg" alt="Planogram 07">
-                </div>
-
-            </div>
-
-        </section>
+            </section>
 
 
-        <!-- =====================
-             DISPLAY
-        ====================== -->
+            <!-- ================= DISPLAY ================= -->
+            <section
+                class="gallery-section"
+                id="display"
+                data-category="display"
+            >
 
-        <section class="gallery-category" data-category="display">
+                <div class="section-info">
 
-            <div class="category-title">
+                    <span class="section-number">02</span>
 
-                <span>03</span>
-
-                <div>
-                    <small>COLLECTION</small>
                     <h2>Display</h2>
+
+                    <p>
+                        Engaging displays that attract,
+                        inspire and convert.
+                    </p>
+
+                    <button class="view-all">
+                        VIEW ALL
+                        <span>↗</span>
+                    </button>
+
                 </div>
 
-            </div>
 
+                <div class="image-grid">
 
-            <div class="gallery-grid">
+                    <div class="gallery-card">
+                        <img src="assets/d1.jpeg" alt="Display 01">
+                    </div>
 
-                <div class="gallery-item right">
-                    <img src="assets/d1.jpeg" alt="Display 01">
+                    <div class="gallery-card">
+                        <img src="assets/d2.jpeg" alt="Display 02">
+                    </div>
+
+                    <div class="gallery-card">
+                        <img src="assets/d3.jpeg" alt="Display 03">
+                    </div>
+
+                    <div class="gallery-card">
+                        <img src="assets/d4.jpeg" alt="Display 04">
+                    </div>
+
+                    <div class="gallery-card">
+                        <img src="assets/d5.jpeg" alt="Display 05">
+                    </div>
+
+                    <div class="gallery-card">
+                        <img src="assets/d6.jpeg" alt="Display 06">
+                    </div>
+
+                    <div class="gallery-card">
+                        <img src="assets/d7.jpeg" alt="Display 07">
+                    </div>
+
+                    <div class="gallery-card">
+                        <img src="assets/d8.jpeg" alt="Display 08">
+                    </div>
+
                 </div>
 
-                <div class="gallery-item left">
-                    <img src="assets/d2.jpeg" alt="Display 02">
-                </div>
-
-                <div class="gallery-item right">
-                    <img src="assets/d3.jpeg" alt="Display 03">
-                </div>
-
-                <div class="gallery-item left">
-                    <img src="assets/d4.jpeg" alt="Display 04">
-                </div>
-
-                <div class="gallery-item right">
-                    <img src="assets/d5.jpeg" alt="Display 05">
-                </div>
-
-                <div class="gallery-item left">
-                    <img src="assets/d6.jpeg" alt="Display 06">
-                </div>
-
-                <div class="gallery-item right">
-                    <img src="assets/d7.jpeg" alt="Display 07">
-                </div>
-
-                <div class="gallery-item left">
-                    <img src="assets/d8.jpeg" alt="Display 08">
-                </div>
-
-            </div>
-
-        </section>
+            </section>
 
 
-        <!-- =====================
-             CAMPAIGNS
-        ====================== -->
+            <!-- ================= CAMPAIGNS ================= -->
+            <section
+                class="gallery-section"
+                id="campaigns"
+                data-category="campaigns"
+            >
 
-        <section class="gallery-category" data-category="campaign">
+                <div class="section-info">
 
-            <div class="category-title">
+                    <span class="section-number">03</span>
 
-                <span>04</span>
-
-                <div>
-                    <small>COLLECTION</small>
                     <h2>Campaigns</h2>
+
+                    <p>
+                        Seasonal campaigns that tell a story
+                        and create impact.
+                    </p>
+
+                    <button class="view-all">
+                        VIEW ALL
+                        <span>↗</span>
+                    </button>
+
                 </div>
 
-            </div>
 
+                <div class="image-grid">
 
-            <div class="gallery-grid">
+                    <div class="gallery-card">
+                        <img src="assets/Campaigns1.jpeg" alt="Campaign 01">
+                    </div>
 
-                <div class="gallery-item left">
-                    <img src="assets/Campaigns1.jpeg" alt="Campaign 01">
+                    <div class="gallery-card">
+                        <img src="assets/Campaigns2.jpeg" alt="Campaign 02">
+                    </div>
+
+                    <div class="gallery-card">
+                        <img src="assets/Campaigns3.jpeg" alt="Campaign 03">
+                    </div>
+
+                    <div class="gallery-card">
+                        <img src="assets/Campaigns4.jpeg" alt="Campaign 04">
+                    </div>
+
+                    <div class="gallery-card">
+                        <img src="assets/Campaigns5.jpeg" alt="Campaign 05">
+                    </div>
+
                 </div>
 
-                <div class="gallery-item right">
-                    <img src="assets/Campaigns2.jpeg" alt="Campaign 02">
-                </div>
-
-                <div class="gallery-item left">
-                    <img src="assets/Campaigns3.jpeg" alt="Campaign 03">
-                </div>
-
-                <div class="gallery-item right">
-                    <img src="assets/Campaigns4.jpeg" alt="Campaign 04">
-                </div>
-
-                <div class="gallery-item left">
-                    <img src="assets/Campaigns5.jpeg" alt="Campaign 05">
-                </div>
-
-            </div>
-
-        </section>
+            </section>
 
 
-        <!-- =====================
-             STYLING
-        ====================== -->
+            <!-- ================= STYLING ================= -->
+            <section
+                class="gallery-section"
+                id="styling"
+                data-category="styling"
+            >
 
-        <section class="gallery-category" data-category="styling">
+                <div class="section-info">
 
-            <div class="category-title">
+                    <span class="section-number">04</span>
 
-                <span>05</span>
-
-                <div>
-                    <small>COLLECTION</small>
                     <h2>Styling</h2>
+
+                    <p>
+                        Thoughtful styling that connects
+                        brands with people.
+                    </p>
+
+                    <button class="view-all">
+                        VIEW ALL
+                        <span>↗</span>
+                    </button>
+
                 </div>
 
-            </div>
 
+                <div class="image-grid">
 
-            <div class="gallery-grid">
+                    <div class="gallery-card">
+                        <img src="assets/styling1.jpeg" alt="Styling 01">
+                    </div>
 
-                <div class="gallery-item right">
-                    <img src="assets/styling1.jpeg" alt="Styling 01">
+                    <div class="gallery-card">
+                        <img src="assets/styling2.jpeg" alt="Styling 02">
+                    </div>
+
+                    <div class="gallery-card">
+                        <img src="assets/styling3.jpeg" alt="Styling 03">
+                    </div>
+
+                    <div class="gallery-card">
+                        <img src="assets/styling4.jpeg" alt="Styling 04">
+                    </div>
+
+                    <div class="gallery-card">
+                        <img src="assets/styling5.jpeg" alt="Styling 05">
+                    </div>
+
+                    <div class="gallery-card">
+                        <img src="assets/styling6.jpeg" alt="Styling 06">
+                    </div>
+
+                    <div class="gallery-card">
+                        <img src="assets/styling7.jpeg" alt="Styling 07">
+                    </div>
+
                 </div>
 
-                <div class="gallery-item left">
-                    <img src="assets/styling2.jpeg" alt="Styling 02">
+            </section>
+
+
+            <!-- ================= PROJECTS ================= -->
+            <section
+                class="gallery-section"
+                id="projects"
+                data-category="projects"
+            >
+
+                <div class="section-info">
+
+                    <span class="section-number">05</span>
+
+                    <h2>Projects</h2>
+
+                    <p>
+                        End-to-end VM projects from concept
+                        to execution.
+                    </p>
+
+                    <button class="view-all">
+                        VIEW ALL
+                        <span>↗</span>
+                    </button>
+
                 </div>
 
-                <div class="gallery-item right">
-                    <img src="assets/styling3.jpeg" alt="Styling 03">
+
+                <div class="image-grid">
+
+                    <div class="gallery-card">
+                        <img src="assets/project1.jpeg" alt="Project 01">
+                    </div>
+
+                    <div class="gallery-card">
+                        <img src="assets/project2.jpeg" alt="Project 02">
+                    </div>
+
+                    <div class="gallery-card">
+                        <img src="assets/project3.jpeg" alt="Project 03">
+                    </div>
+
                 </div>
 
-                <div class="gallery-item left">
-                    <img src="assets/styling4.jpeg" alt="Styling 04">
-                </div>
-
-                <div class="gallery-item right">
-                    <img src="assets/styling5.jpeg" alt="Styling 05">
-                </div>
-
-                <div class="gallery-item left">
-                    <img src="assets/styling6.jpeg" alt="Styling 06">
-                </div>
-
-                <div class="gallery-item right">
-                    <img src="assets/styling7.jpeg" alt="Styling 07">
-                </div>
-
-            </div>
+            </section>
 
         </section>
 
 
-        <!-- =====================
-             PROJECTS
-        ====================== -->
+        <!-- =================================================
+             CTA
+        ================================================== -->
+        <section class="gallery-cta">
 
-        <section class="gallery-category" data-category="project">
+            <div class="cta-glow glow-left"></div>
+            <div class="cta-glow glow-right"></div>
 
-            <div class="category-title">
+            <div class="cta-content">
 
-                <span>06</span>
+                <div class="cta-title">
 
-                <div>
-                    <small>COLLECTION</small>
-                    <h2>Projects</h2>
+                    <span>CURIOUS</span>
+                    <span>TO SEE</span>
+
+                    <em>MORE?</em>
+
                 </div>
 
-            </div>
 
+                <div class="cta-text">
 
-            <div class="gallery-grid">
+                    <p>
+                        Every display has a story.
+                        <br>
+                        Let's create the next one together.
+                    </p>
 
-                <div class="gallery-item left">
-                    <img src="assets/project1.jpeg" alt="Project 01">
-                </div>
+                    <a href="contact.html">
+                        LET'S CONNECT
+                        <span>→</span>
+                    </a>
 
-                <div class="gallery-item right">
-                    <img src="assets/project2.jpeg" alt="Project 02">
-                </div>
-
-                <div class="gallery-item left">
-                    <img src="assets/project3.jpeg" alt="Project 03">
                 </div>
 
             </div>
@@ -418,62 +560,68 @@
     </main>
 
 
-    <!-- =========================
-         CURIOSITY SCREEN
-    ========================== -->
-    <section class="curiosity">
+    <!-- =====================================================
+         FULLSCREEN IMAGE VIEWER
+    ====================================================== -->
+    <div
+        class="lightbox"
+        id="lightbox"
+        aria-hidden="true"
+    >
 
-        <div class="curiosity-glass">
-
-            <span>07 / END</span>
-
-            <h1>
-                CURIOUS
-                <br>
-                TO SEE
-                <em>MORE?</em>
-            </h1>
-
-            <p>
-                Every display has a purpose.
-                Every detail tells a story.
-            </p>
-
-        </div>
-
-    </section>
-
-
-    <!-- =========================
-         FULL SCREEN LIGHTBOX
-    ========================== -->
-    <div class="lightbox" id="lightbox">
-
-        <button class="lightbox-close" id="lightboxClose">
+        <button
+            class="lightbox-close"
+            id="lightboxClose"
+        >
             ×
         </button>
 
-        <button class="lightbox-prev" id="lightboxPrev">
+        <button
+            class="lightbox-prev"
+            id="lightboxPrev"
+        >
             ‹
         </button>
 
         <div class="lightbox-content">
 
-            <img id="lightboxImage" src="" alt="Full Screen">
+            <img
+                id="lightboxImage"
+                src=""
+                alt=""
+            >
 
-            <div class="lightbox-counter" id="lightboxCounter">
-                01 / 01
+            <div class="lightbox-counter">
+                <span id="currentImage">01</span>
+                /
+                <span id="totalImages">01</span>
             </div>
 
         </div>
 
-        <button class="lightbox-next" id="lightboxNext">
+        <button
+            class="lightbox-next"
+            id="lightboxNext"
+        >
             ›
         </button>
 
     </div>
 
 
+    <!-- =====================================================
+         SCROLL TOP
+    ====================================================== -->
+    <button
+        class="scroll-top"
+        id="scrollTop"
+        aria-label="Scroll to top"
+    >
+        ↑
+    </button>
+
+
+    <script src="navbar.js"></script>
     <script src="vm-gallery.js"></script>
 
 </body>

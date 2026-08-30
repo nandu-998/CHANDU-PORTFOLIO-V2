@@ -4,9 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Skills | CHANDU</title>
+    <title>Skills — CHANDU</title>
 
+    <link rel="stylesheet" href="navbar.css">
     <link rel="stylesheet" href="skills.css">
+
+    <script defer src="navbar.js"></script>
+    <script defer src="skills.js"></script>
 </head>
 
 <body>
@@ -15,88 +19,98 @@
          BACKGROUND
     ========================================== -->
 
-    <div class="ambient ambient-one"></div>
-    <div class="ambient ambient-two"></div>
-    <div class="ambient ambient-three"></div>
+    <div class="skills-background">
+        <div class="glow glow-one"></div>
+        <div class="glow glow-two"></div>
+        <div class="glow glow-three"></div>
+    </div>
 
 
     <!-- =========================================
-         GLOBAL NAVBAR
+         NAVBAR
     ========================================== -->
 
-    <header class="global-navbar">
+    <header class="site-header">
 
-        <nav class="nav-links">
+        <nav class="glass-nav">
 
-            <a href="about.html">ABOUT</a>
+            <div class="nav-links">
 
-            <a href="experience.html">EXPERIENCE</a>
+                <a href="about.html">About</a>
 
-            <a href="vm-gallery.html">VM GALLERY</a>
+                <a href="experience.html">Experience</a>
 
-            <a href="skills.html" class="active">
-                SKILLS
-            </a>
+                <a href="vm-gallery.html">VM Gallery</a>
 
-            <a href="contact.html">CONTACT</a>
+                <a href="skills.html" class="active">Skills</a>
+
+                <a href="contact.html">Contact</a>
+
+            </div>
+
+            <button
+                class="theme-toggle"
+                id="themeToggle"
+                aria-label="Toggle dark mode"
+                type="button"
+            >
+                <span class="theme-icon">☼</span>
+            </button>
 
         </nav>
-
-        <button
-            class="dark-toggle"
-            id="darkToggle"
-            aria-label="Toggle dark mode"
-        >
-            <span class="toggle-icon">☾</span>
-        </button>
 
     </header>
 
 
     <!-- =========================================
-         HERO
+         MAIN
     ========================================== -->
 
-    <main>
-
-        <section class="skills-hero">
-
-            <div class="hero-index">
-                04 / SKILLS
-            </div>
-
-            <h1>
-                What I
-                <span>Know.</span>
-            </h1>
-
-            <p>
-                A combination of visual merchandising,
-                retail operations, sales execution and
-                stock management skills developed through
-                hands-on retail experience.
-            </p>
-
-        </section>
+    <main class="skills-page">
 
 
         <!-- =====================================
-             SKILLS INTRO
+             HERO
         ====================================== -->
 
-        <section class="skills-intro">
+        <section class="skills-hero">
 
-            <div class="intro-line"></div>
+            <div class="hero-copy">
 
-            <div class="intro-content">
+                <span class="eyebrow">
+                    • SKILLS
+                </span>
 
-                <span>INTERACTIVE SKILL SYSTEM</span>
+                <h1>
+                    My
+                    <span>Skills.</span>
+                </h1>
 
-                <h2>
-                    Move your mouse.
-                    <br>
-                    <i>Explore my skills.</i>
-                </h2>
+                <p>
+                    Where creativity meets strategy and technical
+                    expertise to build impactful retail experiences.
+                </p>
+
+            </div>
+
+
+            <!-- 3D SKILLS ORB -->
+
+            <div class="skills-orb">
+
+                <div class="orb-ring ring-one"></div>
+                <div class="orb-ring ring-two"></div>
+
+                <div class="orb-core">
+
+                    <strong>25+</strong>
+
+                    <small>
+                        Skills<br>
+                        Mastered
+                    </small>
+
+                </div>
 
             </div>
 
@@ -107,138 +121,145 @@
              VM SKILLS
         ====================================== -->
 
-        <section class="skill-section vm-section">
-
-            <div class="section-number">
-                01
-            </div>
+        <section class="skill-section">
 
             <div class="section-heading">
 
-                <small>
-                    VISUAL MERCHANDISING
-                </small>
+                <span>01</span>
 
-                <h2>
-                    VM <em>Skills</em>
-                </h2>
+                <div>
+                    <small>EXPERTISE</small>
+                    <h2>Visual Merchandising</h2>
+                </div>
 
             </div>
 
 
-            <div class="skills-cloud">
+            <div class="skill-grid">
 
-                <article class="skill-card"
-                    data-color="#9b7cff">
+                <article class="skill-card" data-level="95">
+                    <div class="skill-top">
+                        <span class="skill-icon">VM</span>
+                        <span class="level">95%</span>
+                    </div>
 
-                    <div class="skill-glow"></div>
+                    <h3>Visual Merchandising</h3>
 
-                    <span>VM 01</span>
-
-                    <h3>
-                        Planogram
-                    </h3>
-
-                    <p>
-                        Product placement,
-                        zoning & floor planning
-                    </p>
-
+                    <div class="progress">
+                        <span></span>
+                    </div>
                 </article>
 
 
-                <article class="skill-card"
-                    data-color="#55dfff">
+                <article class="skill-card" data-level="90">
+                    <div class="skill-top">
+                        <span class="skill-icon">SP</span>
+                        <span class="level">85%</span>
+                    </div>
 
-                    <div class="skill-glow"></div>
+                    <h3>Space Planning</h3>
 
-                    <span>VM 02</span>
-
-                    <h3>
-                        Display
-                    </h3>
-
-                    <p>
-                        Window and
-                        floor display execution
-                    </p>
-
+                    <div class="progress">
+                        <span></span>
+                    </div>
                 </article>
 
 
-                <article class="skill-card"
-                    data-color="#ff79c8">
+                <article class="skill-card" data-level="92">
+                    <div class="skill-top">
+                        <span class="skill-icon">PG</span>
+                        <span class="level">92%</span>
+                    </div>
 
-                    <div class="skill-glow"></div>
+                    <h3>Planogramming</h3>
 
-                    <span>VM 03</span>
-
-                    <h3>
-                        Styling
-                    </h3>
-
-                    <p>
-                        Mannequin styling
-                        & product storytelling
-                    </p>
-
+                    <div class="progress">
+                        <span></span>
+                    </div>
                 </article>
 
 
-                <article class="skill-card"
-                    data-color="#70ffbd">
+                <article class="skill-card" data-level="88">
+                    <div class="skill-top">
+                        <span class="skill-icon">SD</span>
+                        <span class="level">88%</span>
+                    </div>
 
-                    <div class="skill-glow"></div>
+                    <h3>Store Design</h3>
 
-                    <span>VM 04</span>
-
-                    <h3>
-                        VM Audit
-                    </h3>
-
-                    <p>
-                        Standards,
-                        execution & compliance
-                    </p>
-
+                    <div class="progress">
+                        <span></span>
+                    </div>
                 </article>
 
 
-                <article class="skill-card"
-                    data-color="#ffc857">
+                <article class="skill-card" data-level="90">
+                    <div class="skill-top">
+                        <span class="skill-icon">PS</span>
+                        <span class="level">20%</span>
+                    </div>
 
-                    <div class="skill-glow"></div>
+                    <h3>Adobe Photoshop</h3>
 
-                    <span>VM 05</span>
-
-                    <h3>
-                        Campaign
-                    </h3>
-
-                    <p>
-                        Seasonal launches
-                        & campaign setup
-                    </p>
-
+                    <div class="progress">
+                        <span></span>
+                    </div>
                 </article>
 
 
-                <article class="skill-card"
-                    data-color="#72a7ff">
+                <article class="skill-card" data-level="85">
+                    <div class="skill-top">
+                        <span class="skill-icon">AI</span>
+                        <span class="level">5%</span>
+                    </div>
 
-                    <div class="skill-glow"></div>
+                    <h3>Adobe Illustrator</h3>
 
-                    <span>VM 06</span>
+                    <div class="progress">
+                        <span></span>
+                    </div>
+                </article>
 
-                    <h3>
-                        Floor Set
-                    </h3>
 
-                    <p>
-                        Floor changes,
-                        zoning & presentation
-                    </p>
+                <article class="skill-card" data-level="87">
+                    <div class="skill-top">
+                        <span class="skill-icon">SK</span>
+                        <span class="level">27%</span>
+                    </div>
 
+                    <h3>SketchUp</h3>
+
+                    <div class="progress">
+                        <span></span>
+                    </div>
+                </article>
+
+
+                <article class="skill-card" data-level="80">
+                    <div class="skill-top">
+                        <span class="skill-icon">EX</span>
+                        <span class="level">80%</span>
+                    </div>
+
+                    <h3>Microsoft Excel</h3>
+
+                    <div class="progress">
+                        <span></span>
+                    </div>
+                </article>
+
+
+                <article class="skill-card" data-level="75">
+                    <div class="skill-top">
+                        <span class="skill-icon">AC</span>
+                        <span class="level">7%</span>
+                    </div>
+
+                    <h3>AutoCAD</h3>
+
+                    <div class="progress">
+                        <span></span>
+                    </div>
                 </article>
 
             </div>
@@ -250,139 +271,30 @@
              SALES SKILLS
         ====================================== -->
 
-        <section class="skill-section sales-section">
-
-            <div class="section-number">
-                02
-            </div>
+        <section class="skill-section">
 
             <div class="section-heading">
 
-                <small>
-                    RETAIL SALES
-                </small>
+                <span>02</span>
 
-                <h2>
-                    Sales <em>Skills</em>
-                </h2>
+                <div>
+                    <small>RETAIL PERFORMANCE</small>
+                    <h2>Sales Skills</h2>
+                </div>
 
             </div>
 
 
-            <div class="skills-cloud">
+            <div class="pill-grid">
 
-                <article class="skill-card"
-                    data-color="#4da6ff">
-
-                    <div class="skill-glow"></div>
-
-                    <span>SALES 01</span>
-
-                    <h3>
-                        Customer Service
-                    </h3>
-
-                    <p>
-                        Customer interaction
-                        & needs analysis
-                    </p>
-
-                </article>
-
-
-                <article class="skill-card"
-                    data-color="#58e6a8">
-
-                    <div class="skill-glow"></div>
-
-                    <span>SALES 02</span>
-
-                    <h3>
-                        Product Knowledge
-                    </h3>
-
-                    <p>
-                        Product features,
-                        benefits & usage
-                    </p>
-
-                </article>
-
-
-                <article class="skill-card"
-                    data-color="#ff6f91">
-
-                    <div class="skill-glow"></div>
-
-                    <span>SALES 03</span>
-
-                    <h3>
-                        Conversion
-                    </h3>
-
-                    <p>
-                        Customer engagement
-                        & sales conversion
-                    </p>
-
-                </article>
-
-
-                <article class="skill-card"
-                    data-color="#b78cff">
-
-                    <div class="skill-glow"></div>
-
-                    <span>SALES 04</span>
-
-                    <h3>
-                        Cross Selling
-                    </h3>
-
-                    <p>
-                        Product pairing
-                        & upselling
-                    </p>
-
-                </article>
-
-
-                <article class="skill-card"
-                    data-color="#ffbd59">
-
-                    <div class="skill-glow"></div>
-
-                    <span>SALES 05</span>
-
-                    <h3>
-                        KPI Tracking
-                    </h3>
-
-                    <p>
-                        Targets, productivity
-                        & daily performance
-                    </p>
-
-                </article>
-
-
-                <article class="skill-card"
-                    data-color="#63d8ff">
-
-                    <div class="skill-glow"></div>
-
-                    <span>SALES 06</span>
-
-                    <h3>
-                        POS & Billing
-                    </h3>
-
-                    <p>
-                        POS operations
-                        & transaction accuracy
-                    </p>
-
-                </article>
+                <div class="skill-pill">Customer Engagement</div>
+                <div class="skill-pill">Product Knowledge</div>
+                <div class="skill-pill">Upselling</div>
+                <div class="skill-pill">Cross Selling</div>
+                <div class="skill-pill">Target Achievement</div>
+                <div class="skill-pill">Customer Service</div>
+                <div class="skill-pill">POS Operations</div>
+                <div class="skill-pill">Complaint Handling</div>
 
             </div>
 
@@ -393,120 +305,30 @@
              STOCK SKILLS
         ====================================== -->
 
-        <section class="skill-section stock-section">
-
-            <div class="section-number">
-                03
-            </div>
+        <section class="skill-section">
 
             <div class="section-heading">
 
-                <small>
-                    RETAIL OPERATIONS
-                </small>
+                <span>03</span>
 
-                <h2>
-                    Stock <em>Skills</em>
-                </h2>
+                <div>
+                    <small>RETAIL OPERATIONS</small>
+                    <h2>Stock Skills</h2>
+                </div>
 
             </div>
 
 
-            <div class="skills-cloud">
+            <div class="pill-grid">
 
-                <article class="skill-card"
-                    data-color="#ff9f43">
-
-                    <div class="skill-glow"></div>
-
-                    <span>STOCK 01</span>
-
-                    <h3>
-                        Inventory
-                    </h3>
-
-                    <p>
-                        Stock accuracy,
-                        movement & control
-                    </p>
-
-                </article>
-
-
-                <article class="skill-card"
-                    data-color="#ffd166">
-
-                    <div class="skill-glow"></div>
-
-                    <span>STOCK 02</span>
-
-                    <h3>
-                        Stock Replenishment
-                    </h3>
-
-                    <p>
-                        Floor availability
-                        & replenishment
-                    </p>
-
-                </article>
-
-
-                <article class="skill-card"
-                    data-color="#62e6b5">
-
-                    <div class="skill-glow"></div>
-
-                    <span>STOCK 03</span>
-
-                    <h3>
-                        Stock Room
-                    </h3>
-
-                    <p>
-                        Organization,
-                        zoning & housekeeping
-                    </p>
-
-                </article>
-
-
-                <article class="skill-card"
-                    data-color="#7ea8ff">
-
-                    <div class="skill-glow"></div>
-
-                    <span>STOCK 04</span>
-
-                    <h3>
-                        Stock Transfer
-                    </h3>
-
-                    <p>
-                        Inter-store movement
-                        & documentation
-                    </p>
-
-                </article>
-
-
-                <article class="skill-card"
-                    data-color="#ff7d9b">
-
-                    <div class="skill-glow"></div>
-
-                    <span>STOCK 05</span>
-
-                    <h3>
-                        Inventory Check
-                    </h3>
-
-                    <p>
-                        Physical verification
-                        & discrepancy control
-                    </p>
-
-                </article>
+                <div class="skill-pill">Inventory Management</div>
+                <div class="skill-pill">Stock Replenishment</div>
+                <div class="skill-pill">Stock Accuracy</div>
+                <div class="skill-pill">GRN Handling</div>
+                <div class="skill-pill">Stock Transfer</div>
+                <div class="skill-pill">Cycle Count</div>
+                <div class="skill-pill">Warehouse Operations</div>
+                <div class="skill-pill">Loss Prevention</div>
 
             </div>
 
@@ -514,123 +336,60 @@
 
 
         <!-- =====================================
-             CORE SKILLS
+             PROFESSIONAL SKILLS
         ====================================== -->
 
-        <section class="skill-section core-section">
-
-            <div class="section-number">
-                04
-            </div>
+        <section class="skill-section professional">
 
             <div class="section-heading">
 
-                <small>
-                    PROFESSIONAL
-                </small>
+                <span>04</span>
 
-                <h2>
-                    Core <em>Skills</em>
-                </h2>
+                <div>
+                    <small>PROFESSIONAL</small>
+                    <h2>Core Strengths</h2>
+                </div>
 
             </div>
 
 
-            <div class="skills-cloud">
+            <div class="core-grid">
 
-                <article class="skill-card"
-                    data-color="#ffffff">
+                <div class="core-card">
+                    <span>✦</span>
+                    <h3>Creativity</h3>
+                    <p>Creating commercially focused visual concepts.</p>
+                </div>
 
-                    <div class="skill-glow"></div>
+                <div class="core-card">
+                    <span>◈</span>
+                    <h3>Communication</h3>
+                    <p>Clear communication across retail teams.</p>
+                </div>
 
-                    <span>CORE 01</span>
+                <div class="core-card">
+                    <span>◇</span>
+                    <h3>Leadership</h3>
+                    <p>Team coordination and VM execution.</p>
+                </div>
 
-                    <h3>
-                        Team Management
-                    </h3>
+                <div class="core-card">
+                    <span>✧</span>
+                    <h3>Teamwork</h3>
+                    <p>Working effectively with store teams.</p>
+                </div>
 
-                    <p>
-                        Team coordination,
-                        support & execution
-                    </p>
+                <div class="core-card">
+                    <span>◎</span>
+                    <h3>Problem Solving</h3>
+                    <p>Finding practical retail solutions.</p>
+                </div>
 
-                </article>
-
-
-                <article class="skill-card"
-                    data-color="#a889ff">
-
-                    <div class="skill-glow"></div>
-
-                    <span>CORE 02</span>
-
-                    <h3>
-                        Leadership
-                    </h3>
-
-                    <p>
-                        Ownership,
-                        decision making & direction
-                    </p>
-
-                </article>
-
-
-                <article class="skill-card"
-                    data-color="#57dfff">
-
-                    <div class="skill-glow"></div>
-
-                    <span>CORE 03</span>
-
-                    <h3>
-                        Communication
-                    </h3>
-
-                    <p>
-                        Team and
-                        customer communication
-                    </p>
-
-                </article>
-
-
-                <article class="skill-card"
-                    data-color="#6cffb0">
-
-                    <div class="skill-glow"></div>
-
-                    <span>CORE 04</span>
-
-                    <h3>
-                        Training
-                    </h3>
-
-                    <p>
-                        VM guidelines,
-                        product & team training
-                    </p>
-
-                </article>
-
-
-                <article class="skill-card"
-                    data-color="#ff8fd3">
-
-                    <div class="skill-glow"></div>
-
-                    <span>CORE 05</span>
-
-                    <h3>
-                        Problem Solving
-                    </h3>
-
-                    <p>
-                        Operational issues
-                        & practical solutions
-                    </p>
-
-                </article>
+                <div class="core-card">
+                    <span>＋</span>
+                    <h3>Project Management</h3>
+                    <p>Managing visual projects from concept to execution.</p>
+                </div>
 
             </div>
 
@@ -638,36 +397,55 @@
 
 
         <!-- =====================================
-             FINAL SCREEN
+             CTA
         ====================================== -->
 
-        <section class="skills-final">
+        <section class="skills-cta">
 
-            <div class="final-glass">
+            <div class="cta-glass">
 
-                <span>
-                    05 / CONTINUOUS LEARNING
-                </span>
+                <div class="cta-orb"></div>
 
-                <h2>
-                    Experience creates skill.
-                    <br>
-                    <i>Practice creates precision.</i>
-                </h2>
+                <div class="cta-content">
 
-                <p>
-                    SKILLS
-                    IN MONITION.
-                </p>
+                    <span>LET'S CONNECT</span>
+
+                    <h2>
+                        Great design creates
+                        <strong>powerful connections.</strong>
+                    </h2>
+
+                    <a href="contact.html" class="cta-button">
+                        LET'S CONNECT
+                        <span>↗</span>
+                    </a>
+
+                </div>
 
             </div>
 
         </section>
+
 
     </main>
 
 
-    <script src="skills.js"></script>
+    <!-- =========================================
+         FOOTER
+    ========================================== -->
+
+    <footer class="skills-footer">
+
+        <div>
+            CHANDU
+            <small>Visual Merchandiser</small>
+        </div>
+
+        <span>
+            © 2026 CHANDU. All Rights Reserved.
+        </span>
+
+    </footer>
 
 </body>
 </html>
