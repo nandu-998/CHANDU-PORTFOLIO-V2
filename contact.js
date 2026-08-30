@@ -30,7 +30,7 @@ const CONTACT = {
 
     /* Your portfolio */
     portfolio:
-        "https://nandu-998.github.io/CHANDU_PORTFOLIO/",
+        "https://nandu-998.github.io/CHANDU-PORTFOLIO-V2/",
 
     /* Resume location */
     resume:
